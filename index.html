@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      background-color: #1b1b1b;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!--<script src="./p5.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+  <script src="https://unpkg.com/p5.js-svg@1.5.1"></script>
+  <!-- <script src="../addons/p5.sound.js"></script> -->
+  <script src="./bentbroken.js"></script>
+  <script src="./index.js"></script>
+  
+  <script>
+
+//Start your code here
+
+
+//Code End
+
+ function keyPressed() {
+      if (key === 's' || key === 'S') {
+        save("fat_arcs.svg"); // Save the canvas as SVG
+      }
+    }
+  </script>
+</body>
+
+</html>
