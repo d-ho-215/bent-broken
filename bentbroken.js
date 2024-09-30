@@ -190,6 +190,7 @@ class BentBroken {
         let current_break_i = 0;
         let drawing_now = false;
         let current_slant = false;
+        let slant_ratio = map(random(), 0, 1, 0.15, 0.75) * random([1,-1])
         for (let y = 0; y < this.height - this.end_insets; y += this.linespacing) {
             let current_break = this.breaks[current_break_i];
             let break_y = map(current_break, 0,1, this.end_insets, this.height - this.end_insets);
@@ -222,7 +223,7 @@ class BentBroken {
                 let yi = map(y, 0, this.height, 0, 1)
                 let y2 = y;
                 if (current_slant) {
-                    y2 = y + this.width * 0.8
+                    y2 = y + this.width * slant_ratio
                 } else {
                     y2 = y
                 }

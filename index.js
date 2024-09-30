@@ -1,6 +1,6 @@
 
 function setup() {
-    createCanvas(900, 600, SVG);
+    createCanvas(1800, 1200, SVG);
     background(255);
     angleMode(DEGREES);
 }
@@ -11,8 +11,8 @@ function draw() {
     strokeWeight(2);
     
     let originx = 40;
-    let bb_width = 25;
-    let bb_height = 600;
+    let bb_width = map(random(), 0, 1, 10, 50);
+    let bb_height = height;
     let linespacing = 5;
     let minbreak = 0.03;
     let end_insets = 50;
@@ -29,7 +29,7 @@ function draw() {
     let start = true;
     
     let colors = [color(PenColors.Stabilo88.blue),
-                    color(PenColors.Stabilo88.deep_cold_grey),
+                    color(PenColors.Stabilo88.ultramarine),
                     color(PenColors.Stabilo88.black)
                     ]
     let accent_color = color(PenColors.Stabilo88.crimson)
@@ -45,10 +45,14 @@ function draw() {
             nextline.initialize();
             start = false;
         }
-        nextline.show();
+        //nextline.show();
         lines.push(nextline);
         x += nextline.width + 4;
         console.log(nextline);
+    }
+    
+    for (let bb of lines) {
+        bb.show()
     }
     
     noLoop();
