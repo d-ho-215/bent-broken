@@ -37,7 +37,7 @@ function colorbyloc(x, cols, col_locs){
 }
 
 class BentBroken {
-    constructor (origin, width, height, linespacing, minbreak, end_insets, breaks, slant, colors, accent_color, target_n_breaks) {
+    constructor (origin, width, height, linespacing, minbreak, end_insets, breaks, slant, colors, accent_color, maxbend, target_n_breaks) {
         this.breaks = breaks;
         this.origin = origin;
         this.width = width;
@@ -51,7 +51,7 @@ class BentBroken {
         this.slant = slant;
         this.target_n_breaks = target_n_breaks; // target number of breaks
         
-        this.maxbend = 7.5 // 0.2 about equal to 11.5 deg // currently set to DEGREES
+        this.maxbend = maxbend // 0.2 about equal to 11.5 deg // currently set to DEGREES
         this.bends = [];
         
         // randomization for width
@@ -84,21 +84,24 @@ class BentBroken {
         //if (this.breaks.length < 2) {
         //    this.update()
         //    }
-        this.update()
+        //this.update()
         
     }
     
     initialize() {
         if (this.target_n_breaks) {
+            //console.log('add to target n breaks')
             while (this.breaks.length < this.target_n_breaks) {
                 this.addBreaks(1)
             }
         } else if (this.breaks.length < 2){
+            //console.log('set random n breaks')
             let start_n_breaks = map(random(), 0, 1, 2, floor((1 / this.minbreak) * 0.6))
             while (this.breaks.length < this.start_n_breaks) {
                 this.addBreaks(2)
             }
         } else {
+            //console.log('just update i guess')
             this.update()
         }
     }
@@ -110,14 +113,14 @@ class BentBroken {
             console.log("n_breaks: ", this.breaks.length)
             if (this.target_n_breaks == this.breaks.length) {
                 // remove 1, add 1
-                console.log("remove 1, add 1")
+                //console.log("remove 1, add 1")
                 this.removeBreaks(1);
                 this.addBreaks(1)
             } else if (this.target_n_breaks > this.breaks.length) {
-                console.log("add 2")
+                //console.log("add 2")
                 this.addBreaks(2)
             } else {
-                console.log("remove 2")
+                //console.log("remove 2")
                 this.removeBreaks(2)
             }
         } else {
